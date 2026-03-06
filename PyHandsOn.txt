@@ -70,6 +70,7 @@ print(people)     # Only 2 unique people, since p1 == p2
 | Syntax      | `[item1, item2]`  | `(item1, item2)`   |
 | Performance | Slightly slower   | Faster (read-only) |
 | Use case    | When data changes | Fixed data         |
+  hashing	NO			yes
 
 # List example
 nums = [1, 2, 3]
@@ -417,6 +418,17 @@ for i in n:
 ***
 A generator is a simpler way to create an iterator using a function with yield.
 
+
+def fib(n):
+    a,b=0,1
+    for i in range(n):
+        yield a
+        a,b=b,a+b
+        
+f=fib(7)
+for i in f:
+    print(i)
+
 def count_up_to(n):
     num = 1
     while num <= n:
@@ -447,7 +459,7 @@ def count_up_to_reg(n):
 | State saved | Manually handled                  | Automatically by Python      |
 | Syntax      | Verbose                           | Compact and Pythonic         |
 | Use Case    | Custom iteration logic            | Efficient looping, streaming |
-
+ 
 **************************************
 6.lambda fn 
 A lambda is a short, anonymous function (i.e., a function without a name), defined using the lambda keyword
@@ -470,6 +482,12 @@ print(double(5))  # Output: 10
 triple = make_multiplier(3)
 print(triple(5))  # Output: 15	
 
+SYNTAX---------------> map(function, iterable)
+		       filter(function,iterable)
+		       from functools import reduce
+		       reduce(function, iterable)
+
+
 nums = [1, 2, 3, 4]
 squared = list(map(lambda x: x**2, nums))
 print(squared)  # [1, 4, 9, 16]
@@ -477,6 +495,26 @@ print(squared)  # [1, 4, 9, 16]
 nums = [1, 2, 3, 4, 5, 6]
 evens = list(filter(lambda x: x % 2 == 0, nums))
 print(evens)  # [2, 4, 6]
+
+
+from functools import reduce
+
+nums = [1, 2, 3, 4]
+
+res = reduce(lambda a, b: a + b, nums)
+print(res)
+
+10
+
+1 + 2 → 3
+3 + 3 → 6
+6 + 4 → 10
+🧠 Use when
+
+✔ You need one final result
+✔ Aggregation logic
+
+
 
 students = [("Alice", 85), ("Bob", 75), ("Charlie", 90)]
 sorted_students = sorted(students, key=lambda x: x[1])
@@ -997,7 +1035,11 @@ op::  Error: Age must be at least 18!
 | Inherit hierarchy                			| For organized error management |
 
 
+******************************************************************************
+🧠 Interview One-Line Answer (BEST)
+Y zero based Indexing?
 
+“Zero-based indexing simplifies memory address calculation and pointer arithmetic, making array access faster and less error-prone.”
 
 ************************************************************
 
