@@ -1,5 +1,6 @@
 # RAG (Retrieval-Augmented Generation) Interview Tutorial - Quick Recap Guide
 
+
 ## Table of Contents
 1. [RAG Fundamentals](#rag-fundamentals)
 2. [RAG Architecture](#rag-architecture)
