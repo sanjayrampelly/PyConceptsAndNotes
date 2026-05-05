@@ -124,6 +124,32 @@ o	Adds the object as it is
 •	extend()
 o	Input type: ONLY iterables
 o	Adds the contents of the iterable
+
+
+
+a=[[]]*5 
+print(a)
+a[1].append(20)
+a[2].append(30)
+print(a)
+
+output: [[20, 30], [20, 30], [20, 30], [20, 30], [20, 30]]
+
+
+🧠 Interview takeaway
+* with mutable objects → shared references
+Safe for immutable types (like ints, strings)
+Dangerous for mutable types (list, dict, set)
+
+
+✅ Correct way (independent lists)
+
+Use list comprehension:
+
+a = [[] for _ in range(5)]
+
+Now each element is a different list.
+
 *******************************************************************************
 
 3. dictionary and set
@@ -307,6 +333,24 @@ OP:
 before
 hello
 After
+
+
+
+def mydec(func):
+    def wrapper(*args):
+        print("before")
+        func()
+        print("after")
+        
+    return wrapper
+    
+    
+def hello(s,s2):
+    print(f"hello {s} and {s2}")
+    
+hello("sanjay","kumar")
+
+
 
 def log(func):
     def wrapper(n):
